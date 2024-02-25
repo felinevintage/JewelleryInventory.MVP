@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const db = require("../model/helper");
 const itemMustExist = require("../guards/itemMustExist");
+const typeMustExist = require("../guards/typeMustExist")
 
 
 router.get('/', function(req, res, next) {
@@ -38,6 +39,19 @@ router.get("/type", async function (req, res, next) {
     res.status(500).send(err);
   }})
 
+// //Get list of items and image by type
+router.get("/type/:text", typeMustExist, async function (req, res, next){
+  try {
+    const { text } = req.params;
+    await db(`SELECT image FROM items WHERE type IN ('${text}');`);
+    const results = await db(`SELECT image FROM items WHERE type IN ('${text}');`);
+    res.send(results.data)
+  } catch(err) {
+    res.status(500).send(err);
+  }
+});
+
+
 // //Get all info of single item by id
 router.get("/:id", itemMustExist, async function (req, res, next){
   try {
@@ -54,8 +68,8 @@ router.get("/:id", itemMustExist, async function (req, res, next){
 router.delete("/:id", itemMustExist, async function (req, res, next){
   try {
     const { id } = req.params;
-    await db(`DELETE * FROM items WHERE id = ${id};`);
-    const results = await db(`DELETE * FROM items WHERE id = ${id};`);
+    await db(`DELETE FROM items WHERE id = ${id};`);
+    const results = await db(`DELETE FROM items WHERE id = ${id};`);
     res.send(results.data)
   } catch(err) {
     res.status(500).send(err);

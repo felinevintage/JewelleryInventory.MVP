@@ -17,14 +17,14 @@ CREATE TABLE users(
 CREATE TABLE items(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `type` VARCHAR(255) NOT NULL,
-    `image` VARCHAR(255) NOT NULL,
+    `image` BLOB NOT NULL,
     `era` VARCHAR(255) NULL,
     `maker` VARCHAR(255) NULL,
     `colour` VARCHAR(255) NULL,
     `material` VARCHAR(255) NULL,
     `paid` BIGINT NULL,
     `description` VARCHAR(255) NULL,
-    `for_sale` TINYINT(1) NULL
+    `for_sale` BOOLEAN NULL
 );
 
 ALTER TABLE
