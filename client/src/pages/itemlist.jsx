@@ -1,46 +1,35 @@
 import React from "react";
-import { NavLink, useSearchParam } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function ItemList () {
+export default function Itemlist() {
+  const [items, setItems] = useState([]);
 
-  const [singleType, setSingleType] = useState()
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => { 
-    fetch("/api/items")
-    .then((res) => res.json())
-    .then((json) => {
+  const category = searchParams.get("category");
 
-      getSingleType(json);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  useEffect(() => {
+    getItems();
   }, []);
 
-  const getSingleType = async function () {
-    try{
-    const response = await fetch(`/api/items/type/(text)`, {
-      method: "GET",
-      headers: {
-      "Content-type": "application/json",
-      }, 
-    });
-    const data = await response.json();
-    setSingleType(data);
-   } catch (err) {
-    console.log(err)
-   }
+  const getItems = async function () {
+    try {
+      const response = await fetch(`/api/items?category=${category}`);
+      const data = await response.json();
+      setItems(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-
-return (
+  return (
     <div>
-        <ul>
-        {singleType.map((text) => (
-      <li key={singleType.id} >{singleType}</li>
-    ))}
-        </ul>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.type}</li>
+        ))}
+      </ul>
     </div>
-)
-}
+  );
 }
