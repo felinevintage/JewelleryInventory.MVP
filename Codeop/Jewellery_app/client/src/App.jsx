@@ -3,7 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import './App.css'
 import Category from "./pages/Category";
 import AddItem from "./pages/AddItem";
-// import itemlist from "./components/itemlist";
+import itemlist from "./components/itemlist";
 
 
 
@@ -36,7 +36,7 @@ function App() {
 
     <Routes>
         <Route path="/category" element={<Category />} />
-        {/* <Route path="/item/:text" element={itemlist} /> */}
+        <Route path="/item" element={<itemlist />} />
         {/* <Route path="/singleitem" element={<SingleItem />} /> */}
         <Route path="/additem" element={<AddItem />} />
     </Routes>
