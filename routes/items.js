@@ -88,8 +88,8 @@ router.delete("/:id", itemMustExist, async function (req, res, next) {
   try {
     const { id } = req.params;
     await db(`DELETE FROM items WHERE id = ${id};`);
-    const results = await db(`DELETE FROM items WHERE id = ${id};`);
-    res.send(results.data);
+    res.status(200)
+    .send({message: "Item Deleted"})
   } catch (err) {
     res.status(500).send(err);
   }

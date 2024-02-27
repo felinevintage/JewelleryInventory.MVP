@@ -48,7 +48,7 @@ export default function AddItem() {
       <div className="container d-flex mb-4 justify-content-center">
         <form onSubmit={handleSubmit} className="form-inline">
           <div className="form-group pt-4">
-            <label className="form-label pt-3">Type</label>
+            <label className="form-label fw-semibold pt-3">Type</label>
             <select
               onChange={handleChange}
               value={item.type}
@@ -67,7 +67,7 @@ export default function AddItem() {
             </select>
           </div>
           <div className="form-group mb-6">
-            <label className="form-label pt-4">Picture</label>
+            <label className="form-label fw-semibold pt-4">Picture</label>
             <input
               onChange={handleChange}
               value={item.image}
@@ -77,7 +77,7 @@ export default function AddItem() {
             />
           </div>
           <div className="form-group mb-6">
-            <label className="pt-4">Era</label>
+            <label className="form-label fw-semibold pt-4">Era</label>
             <input
               onChange={handleChange}
               value={item.era}
@@ -87,7 +87,7 @@ export default function AddItem() {
             />
           </div>
           <div className="form-group mb-6">
-            <label className="pt-4">Maker</label>
+            <label className="form-label fw-semibold pt-4">Maker</label>
             <input
               onChange={handleChange}
               value={item.maker}
@@ -97,7 +97,7 @@ export default function AddItem() {
             />
           </div>
           <div className="form-group mb-6">
-            <label className="pt-4">Colour</label>
+            <label className="form-label fw-semibold pt-4">Colour</label>
             <select
               onChange={handleChange}
               name="colour"
@@ -124,7 +124,7 @@ export default function AddItem() {
             </select>
           </div>
           <div className="form-group mb-6">
-            <label className="pt-4">Material</label>
+            <label className="form-label fw-semibold pt-4">Material</label>
             <input
               onChange={handleChange}
               value={item.material}
@@ -134,7 +134,7 @@ export default function AddItem() {
             />
           </div>
           <div className="form-group mb-6">
-            <label className="pt-4">Price Paid</label>
+            <label className="form-label fw-semibold pt-4">Price Paid</label>
             <input
               onChange={handleChange}
               value={item.paid}
@@ -144,7 +144,7 @@ export default function AddItem() {
             />
           </div>
           <div className="form-group mb-6">
-            <label className="pt-4">Description</label>
+            <label className="form-label fw-semibold pt-4">Description</label>
             <textarea
               onChange={handleChange}
               value={item.description}
@@ -154,7 +154,7 @@ export default function AddItem() {
             ></textarea>
           </div>
           <div className="form-group mb-6">
-            <label className="pt-4 mb-4">For Sale?</label>
+            <label className="form-label fw-semibold pt-4 mb-4">For Sale?</label>
             <input
               onChange={handleChange}
               value={item.for_sale}
