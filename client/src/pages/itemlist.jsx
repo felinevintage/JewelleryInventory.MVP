@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Itemlist() {
@@ -24,10 +24,12 @@ export default function Itemlist() {
   };
 
   return (
-    <div>
-      <ul>
+    <div className="container d-flex text-uppercase fs-6 fw-semibold justify-content-center">
+      <ul className="justify-content-center list-unstyled pt-4">
         {items.map((item) => (
-          <li key={item.id}>{item.type}</li>
+          <li className="fs-1 pt-1 mb-1 text-success" key={item.id}>
+          <Link className="text-decoration-none text-success" to={`/singleitem?item=${item.id}`}>{item.type}</Link>
+          </li>
         ))}
       </ul>
     </div>

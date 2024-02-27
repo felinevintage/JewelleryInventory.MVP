@@ -21,6 +21,7 @@ router.get("/", function (req, res, next) {
     .catch((err) => res.status(500).send(err));
 });
 
+
 //ADD ITEM
 router.post("/", async function (req, res, next) {
   try {
@@ -57,20 +58,20 @@ router.get("/types", async function (req, res, next) {
 });
 
 // //Get list of items and image by type
-router.get("/types/:text", typeMustExist, async function (req, res, next) {
-  try {
-    const { text } = req.params;
-    await db(`SELECT image FROM items WHERE type IN ('${text}');`);
-    const results = await db(
-      `SELECT image FROM items WHERE type IN ('${text}');`
-    );
-    res.send(results.data);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
+// router.get("/types/:text", typeMustExist, async function (req, res, next) {
+//   try {
+//     const { text } = req.params;
+//     await db(`SELECT image FROM items WHERE type IN ('${text}');`);
+//     const results = await db(
+//       `SELECT image FROM items WHERE type IN ('${text}');`
+//     );
+//     res.send(results.data);
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
 
-// //Get all info of single item by id
+//Get all info of single item by id
 router.get("/:id", itemMustExist, async function (req, res, next) {
   try {
     const { id } = req.params;

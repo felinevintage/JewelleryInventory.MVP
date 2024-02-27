@@ -4,6 +4,7 @@ import "./App.css";
 import Category from "./pages/Category";
 import AddItem from "./pages/AddItem";
 import Itemlist from "./pages/Itemlist";
+import SingleItem from "./pages/SingleItem";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
             Categories
           </Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link
             className="nav-link active border-success"
             aria-current="page"
@@ -27,6 +28,15 @@ function App() {
             All items
           </Link>
         </li>
+        <li className="nav-item">
+          <Link
+            className="nav-link active border-success"
+            aria-current="page"
+            to="/singleitem"
+          >
+            Single item
+          </Link>
+        </li> */}
         <li className="nav-item">
           <Link
             className="nav-link active border-success"
@@ -41,7 +51,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Category />} />
         <Route path="/items" element={<Itemlist />} />
-        {/* <Route path="/singleitem" element={<SingleItem />} /> */}
+        <Route path="/singleitem" element={<SingleItem />} />
         <Route path="/items/new" element={<AddItem />} />
       </Routes>
     </>
